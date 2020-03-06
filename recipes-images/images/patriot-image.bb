@@ -1,5 +1,5 @@
-SUMMARY = "Show a US Flag until the power shuts down"
-DESCRIPTION = "Image with a flag"
+SUMMARY = "The Patriot Image"
+DESCRIPTION = "An animated flag"
 
 LICENSE = "MIT"
 inherit core-image
@@ -17,7 +17,7 @@ IMAGE_FEATURES += " \
                                                        '', d), d)} \
 "
 
-inherit populate_sdk_qt5
+#inherit populate_sdk_qt5
 
 IMAGE_LINGUAS = "en-us"
 
@@ -26,17 +26,8 @@ ROOTFS_PKGMANAGE_PKGS ?= '${@oe.utils.conditional("ONLINE_PACKAGE_MANAGEMENT", "
 QT5_LIBS ?= " \
     qtbase \
     qtdeclarative \
-    qtgraphicaleffects \
-    qtimageformats \
-    qtquickcontrols2 \
     qtxmlpatterns \
 "
-QT5_LIBS_GPLv3 ?= " \
-    qtcharts \
-    qtdatavis3d \
-    qtvirtualkeyboard \
-"
-
 
 IMAGE_INSTALL += " \
     ${QT5_LIBS} \
@@ -44,9 +35,15 @@ IMAGE_INSTALL += " \
     patriot \
     wayland \
     weston weston-init weston-examples libdrm-tests \
+    xserver-common \
+    xauth \
+    xhost \
+    xset \
+    setxkbmap \
+    weston-init \
+    xrdb \
+    xorg-minimal-fonts xserver-xorg-utils \
 "
-
-require recipes-images/images/tdx-extra.inc
 
 IMAGE_DEV_MANAGER   = "udev"
 IMAGE_INIT_MANAGER  = "systemd"
