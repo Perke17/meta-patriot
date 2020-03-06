@@ -35,14 +35,6 @@ IMAGE_INSTALL += " \
     patriot \
     wayland \
     weston weston-init weston-examples libdrm-tests \
-    xserver-common \
-    xauth \
-    xhost \
-    xset \
-    setxkbmap \
-    weston-init \
-    xrdb \
-    xorg-minimal-fonts xserver-xorg-utils \
 "
 
 IMAGE_DEV_MANAGER   = "udev"
